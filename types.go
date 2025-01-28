@@ -49,8 +49,8 @@ type (
 // NewCharacter creates a new Morse code character
 func NewCharacter(unicode rune, code string) *Character {
 	return &Character{
-		unicode: unicode,
-		code:    code,
+		unicode,
+		code,
 	}
 }
 
@@ -67,8 +67,8 @@ func (c *Character) GetCode() string {
 // NewProvisionalSignal creates a new Morse code provisional signal
 func NewProvisionalSignal(signal string, code string) *ProvisionalSignal {
 	return &ProvisionalSignal{
-		signal: signal,
-		code:   code,
+		signal,
+		code,
 	}
 }
 
@@ -123,10 +123,10 @@ func NewMorseCodeHandler(
 	}
 
 	return &MorseCodeHandler{
-		alphabet:      alphabet,
-		signals:       signals,
-		unicodeToCode: unicodeToCode,
-		codeToUnicode: codeToUnicode,
+		alphabet,
+		signals,
+		unicodeToCode,
+		codeToUnicode,
 	}, nil
 }
 
