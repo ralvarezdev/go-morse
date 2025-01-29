@@ -37,7 +37,7 @@ var (
 	One   = gomorse.NewCharacter('1', ".----")
 	Two   = gomorse.NewCharacter('2', "..---")
 	Three = gomorse.NewCharacter('3', "...--")
-	Four  = gomorse.NewCharacter('4', "....")
+	Four  = gomorse.NewCharacter('4', "....-")
 	Five  = gomorse.NewCharacter('5', ".....")
 	Six   = gomorse.NewCharacter('6', "-....")
 	Seven = gomorse.NewCharacter('7', "--...")
