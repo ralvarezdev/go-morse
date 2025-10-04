@@ -47,6 +47,15 @@ type (
 )
 
 // NewCharacter creates a new Morse code character
+//
+// Parameters:
+//
+//   - unicode: The Unicode character
+//   - code: The Morse code representation
+//
+// Returns:
+//
+//   - *Character: A pointer to the newly created Character struct
 func NewCharacter(unicode rune, code string) *Character {
 	return &Character{
 		unicode,
@@ -55,16 +64,33 @@ func NewCharacter(unicode rune, code string) *Character {
 }
 
 // GetUnicode returns the character in Unicode
+//
+// Returns:
+//
+//   - rune: The Unicode character
 func (c Character) GetUnicode() rune {
 	return c.unicode
 }
 
 // GetCode returns the code
+//
+// Returns:
+//
+//   - string: The Morse code representation
 func (c Character) GetCode() string {
 	return c.code
 }
 
 // NewProvisionalSignal creates a new Morse code provisional signal
+//
+// Parameters:
+//
+//   - signal: The signal representation (e.g., SOS)
+//   - code: The Morse code representation of the signal
+//
+// Returns:
+//
+//   - *ProvisionalSignal: A pointer to the newly created ProvisionalSignal struct
 func NewProvisionalSignal(signal string, code string) *ProvisionalSignal {
 	return &ProvisionalSignal{
 		signal,
@@ -73,26 +99,61 @@ func NewProvisionalSignal(signal string, code string) *ProvisionalSignal {
 }
 
 // GetSignal returns the signal
+//
+// Returns:
+//
+// - string: The signal representation (e.g., SOS)
 func (p ProvisionalSignal) GetSignal() string {
 	return p.signal
 }
 
 // GetCode returns the code
+//
+// Returns:
+//
+// - string: The Morse code representation of the signal
 func (p ProvisionalSignal) GetCode() string {
 	return p.code
 }
 
 // NewAlphabet creates a new Morse code alphabet
+//
+// Parameters:
+//
+//   - characters: A variadic list of pointers to Character structs
+//
+// Returns:
+//
+//   - Alphabet: A pointer to the newly created Alphabet
 func NewAlphabet(characters ...*Character) Alphabet {
 	return &characters
 }
 
 // NewProvisionalSignals creates a new Morse code provisional signals
+//
+// Parameters:
+//
+//   - signals: A variadic list of pointers to ProvisionalSignal structs
+//
+// Returns:
+//
+//   - ProvisionalSignals: A pointer to the newly created ProvisionalSignals
 func NewProvisionalSignals(signals ...*ProvisionalSignal) ProvisionalSignals {
 	return &signals
 }
 
 // NewMorseCodeHandler creates a new Morse code handler
+//
+// Parameters:
+//
+//   - alphabet: The Morse code alphabet
+//
+// - signals: The Morse code provisional signals
+//
+// Returns:
+//
+// - *MorseCodeHandler: A pointer to the newly created MorseCodeHandler struct
+// - error: An error if the Unicode or code already exists in the alphabet
 func NewMorseCodeHandler(
 	alphabet Alphabet,
 	signals ProvisionalSignals,
@@ -131,6 +192,14 @@ func NewMorseCodeHandler(
 }
 
 // Encode encodes the text to Morse code
+//
+// Parameters:
+//
+//   - text: The text to encode
+//
+// Returns:
+//
+// - string: The encoded Morse code
 func (m MorseCodeHandler) Encode(text string) string {
 	// Encode the text to Morse code
 	var code string
@@ -161,11 +230,27 @@ func (m MorseCodeHandler) Encode(text string) string {
 }
 
 // EncodeToBytes encodes the text to Morse code bytes
+//
+// Parameters:
+//
+// - text: The text to encode
+//
+// Returns:
+//
+// - []byte: The encoded Morse code bytes
 func (m MorseCodeHandler) EncodeToBytes(text string) []byte {
 	return []byte(m.Encode(text))
 }
 
 // Decode decodes the Morse code to text
+//
+// Parameters:
+//
+// - morseCode: The Morse code to decode
+//
+// Returns:
+//
+// - string: The decoded text
 func (m MorseCodeHandler) Decode(morseCode string) string {
 	// Decode the Morse code to text
 	var unicodes []rune
@@ -201,6 +286,14 @@ func (m MorseCodeHandler) Decode(morseCode string) string {
 }
 
 // DecodeFromBytes decodes the Morse code bytes to text
+//
+// Parameters:
+//
+// - morseCode: The Morse code bytes to decode
+//
+// Returns:
+//
+// - string: The decoded text
 func (m MorseCodeHandler) DecodeFromBytes(morseCode []byte) string {
 	return m.Decode(string(morseCode))
 }
