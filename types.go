@@ -5,20 +5,7 @@ import (
 	"strings"
 )
 
-var (
-	CodeSeparator = " "
-	WordSeparator = " / "
-)
-
 type (
-	// MorseCode is the interface for the Morse code
-	MorseCode interface {
-		Encode(text string) string
-		EncodeToBytes(text string) []byte
-		Decode(morseCode string) string
-		DecodeFromBytes(morseCode []byte) string
-	}
-
 	// MorseCodeHandler is the struct for the Morse code handler
 	MorseCodeHandler struct {
 		alphabet      Alphabet
