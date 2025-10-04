@@ -55,12 +55,12 @@ func NewCharacter(unicode rune, code string) *Character {
 }
 
 // GetUnicode returns the character in Unicode
-func (c *Character) GetUnicode() rune {
+func (c Character) GetUnicode() rune {
 	return c.unicode
 }
 
 // GetCode returns the code
-func (c *Character) GetCode() string {
+func (c Character) GetCode() string {
 	return c.code
 }
 
@@ -73,12 +73,12 @@ func NewProvisionalSignal(signal string, code string) *ProvisionalSignal {
 }
 
 // GetSignal returns the signal
-func (p *ProvisionalSignal) GetSignal() string {
+func (p ProvisionalSignal) GetSignal() string {
 	return p.signal
 }
 
 // GetCode returns the code
-func (p *ProvisionalSignal) GetCode() string {
+func (p ProvisionalSignal) GetCode() string {
 	return p.code
 }
 
@@ -131,7 +131,7 @@ func NewMorseCodeHandler(
 }
 
 // Encode encodes the text to Morse code
-func (m *MorseCodeHandler) Encode(text string) string {
+func (m MorseCodeHandler) Encode(text string) string {
 	// Encode the text to Morse code
 	var code string
 	var words []string
@@ -161,12 +161,12 @@ func (m *MorseCodeHandler) Encode(text string) string {
 }
 
 // EncodeToBytes encodes the text to Morse code bytes
-func (m *MorseCodeHandler) EncodeToBytes(text string) []byte {
+func (m MorseCodeHandler) EncodeToBytes(text string) []byte {
 	return []byte(m.Encode(text))
 }
 
 // Decode decodes the Morse code to text
-func (m *MorseCodeHandler) Decode(morseCode string) string {
+func (m MorseCodeHandler) Decode(morseCode string) string {
 	// Decode the Morse code to text
 	var unicodes []rune
 	var words []string
@@ -201,6 +201,6 @@ func (m *MorseCodeHandler) Decode(morseCode string) string {
 }
 
 // DecodeFromBytes decodes the Morse code bytes to text
-func (m *MorseCodeHandler) DecodeFromBytes(morseCode []byte) string {
+func (m MorseCodeHandler) DecodeFromBytes(morseCode []byte) string {
 	return m.Decode(string(morseCode))
 }
