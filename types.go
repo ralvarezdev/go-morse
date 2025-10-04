@@ -27,10 +27,10 @@ type (
 	}
 
 	// Alphabet is the Morse code alphabet
-	Alphabet *[]*Character
+	Alphabet []*Character
 
 	// ProvisionalSignals is the provisional signals
-	ProvisionalSignals *[]*ProvisionalSignal
+	ProvisionalSignals []*ProvisionalSignal
 )
 
 // NewCharacter creates a new Morse code character
@@ -111,9 +111,9 @@ func (p ProvisionalSignal) GetCode() string {
 //
 // Returns:
 //
-//   - Alphabet: A pointer to the newly created Alphabet
+//   - Alphabet: The newly created Alphabet
 func NewAlphabet(characters ...*Character) Alphabet {
-	return &characters
+	return characters
 }
 
 // NewProvisionalSignals creates a new Morse code provisional signals
@@ -124,9 +124,9 @@ func NewAlphabet(characters ...*Character) Alphabet {
 //
 // Returns:
 //
-//   - ProvisionalSignals: A pointer to the newly created ProvisionalSignals
+//   - ProvisionalSignals: The newly created ProvisionalSignals
 func NewProvisionalSignals(signals ...*ProvisionalSignal) ProvisionalSignals {
-	return &signals
+	return signals
 }
 
 // NewMorseCodeHandler creates a new Morse code handler
@@ -152,7 +152,7 @@ func NewMorseCodeHandler(
 	// Populate the maps
 	var unicode int32
 	var code string
-	for _, character := range *alphabet {
+	for _, character := range alphabet {
 		// Check if the character is already in the maps
 		unicode = character.GetUnicode()
 		if _, ok := unicodeToCode[unicode]; ok {
